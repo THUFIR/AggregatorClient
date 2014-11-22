@@ -21,8 +21,8 @@ public class AggregatorClient {
 
     private void remoteEJB() throws NamingException {
         Context ctx = new InitialContext();
-        log.fine(ctx.getEnvironment().toString());
-        Object obj = ctx.lookup("ejb.EJBRemoteInterface");
+        log.warning(ctx.getEnvironment().toString());
+        Object obj = ctx.lookup("dur.ejb.AnswerSessionBeanRemote");
         AnswerSessionBeanRemote asbr = (AnswerSessionBeanRemote) obj;
         log.info("answer\t" + asbr.lifeTheUniverseAndEverything());
     }
