@@ -1,4 +1,4 @@
 AggregatorClient
 ================
 
-CORBA client
+CORBA client, remote lookup
