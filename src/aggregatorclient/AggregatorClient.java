@@ -1,9 +1,27 @@
 package aggregatorclient;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
 public class AggregatorClient {
 
+    private static final Logger log = Logger.getLogger(AggregatorClient.class.getName());
+
     public static void main(String[] args) {
-        // TODO code application logic here
+        try {
+            new AggregatorClient().foo();
+        } catch (NamingException ex) {
+            Logger.getLogger(AggregatorClient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void foo() throws NamingException {
+        Context ctx = new InitialContext();
+        log.fine(ctx.getEnvironment().toString());
+        Object obj = ctx.lookup("ejb.EJBRemoteInterface");
     }
 
 }
